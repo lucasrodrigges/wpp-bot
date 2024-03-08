@@ -13,7 +13,7 @@ const readMessage = require('./utils/readMessage');
   await page.setViewport({ width: 1920, height: 1080 });
 
   await page.goto('https://web.whatsapp.com/');
-  await wait(10000);
+  await wait(30000);
   await page.waitForSelector('text/Baixar o WhatsApp para Windows');
 
   for (let i = 0; i < valid.length; i++) {
