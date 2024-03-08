@@ -7,7 +7,7 @@ module.exports = () => {
     const data = fs.readFileSync(filePath, 'utf8');
     return data;
   } catch (error) {
-    console.log(error);
+    console.log('Erro ao ler o arquivo de mensagens.');
     return '';
   }
 };

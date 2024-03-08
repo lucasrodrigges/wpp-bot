@@ -4,7 +4,7 @@ const { removeMask } = require('./mask');
 
 module.exports = () => {
   try {
-    const filePath = path.join(__dirname, '../../arquivos/contatos.txt.txt');
+    const filePath = path.join(__dirname, '../../arquivos/contatos.txt');
     const data = fs.readFileSync(filePath, 'utf8').split(/[\r\n]+/).map((item) => item.trim());
     return data.reduce((acc, curr) => {
       const [name, phone] = curr.split(',');
@@ -61,7 +61,7 @@ module.exports = () => {
       invalid: [],
     });
   } catch (error) {
-    console.log('Erro ao ler o arquivo.');
+    console.log('Erro ao ler o arquivo de contatos.');
     return [];
   }
 };
