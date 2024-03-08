@@ -1,7 +1,5 @@
 .\nvm-setup.exe
 
-timeout /t 2 /nobreak >nul
-
 @echo off
 set NVM_HOME=C:\Users\%USERNAME%\AppData\Roaming\nvm
 set NVM_SYMLINK=C:\Program Files\nodejs
