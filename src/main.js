@@ -11,7 +11,7 @@ const readMessage = require('./utils/readMessage');
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   await page.setViewport({ 
-    with: 1024,
+    width: 1366,
     height: 768,
    });
 
