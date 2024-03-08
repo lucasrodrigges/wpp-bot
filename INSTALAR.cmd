@@ -5,27 +5,28 @@ call curl -L https://github.com/microsoft/winget-cli/releases/download/v1.7.1058
 
 call winget install --id Git.Git -e --source winget
 
-call curl -L https://github.com/coreybutler/nvm-windows/releases/download/1.1.12/nvm-setup.exe -o .\tools\nvm.exe
-.\tools\nvm.exe
+call git -v
 
-@echo off
-set NVM_HOME=C:\Users\%USERNAME%\AppData\Roaming\nvm
-set NVM_SYMLINK=C:\Program Files\nodejs
-setx /M NVM_HOME "%NVM_HOME%"
-setx /M NVM_SYMLINK "%NVM_SYMLINK%"
+@REM call curl -L https://github.com/coreybutler/nvm-windows/releases/download/1.1.12/nvm-setup.exe -o .\tools\nvm.exe
+@REM .\tools\nvm.exe
 
-echo PATH=%PATH% > %NVM_HOME%\PATH.txt
+@REM @echo off
+@REM set NVM_HOME=C:\Users\%USERNAME%\AppData\Roaming\nvm
+@REM set NVM_SYMLINK=C:\Program Files\nodejs
+@REM setx /M NVM_HOME "%NVM_HOME%"
+@REM setx /M NVM_SYMLINK "%NVM_SYMLINK%"
 
-for /f "skip=2 tokens=2,*" %%A in ('reg query "HKLM\System\CurrentControlSet\Control\Session Manager\Environment" /v Path 2^>nul') do (
-  setx /M PATH "%%B;%%NVM_HOME%%;%%NVM_SYMLINK%%"
-)
+@REM echo PATH=%PATH% > %NVM_HOME%\PATH.txt
 
-if exist "%SYSTEMDRIVE%\Program Files (x86)\" (
-set SYS_ARCH=64
-) else (
-set SYS_ARCH=32
-)
-(echo root: %NVM_HOME% && echo path: %NVM_SYMLINK% && echo arch: %SYS_ARCH% && echo proxy: none) > %NVM_HOME%\settings.txt
+@REM for /f "skip=2 tokens=2,*" %%A in ('reg query "HKLM\System\CurrentControlSet\Control\Session Manager\Environment" /v Path 2^>nul') do (
+@REM   setx /M PATH "%%B;%%NVM_HOME%%;%%NVM_SYMLINK%%"
+@REM )
 
-@echo on
+@REM if exist "%SYSTEMDRIVE%\Program Files (x86)\" (
+@REM set SYS_ARCH=64
+@REM ) else (
+@REM set SYS_ARCH=32
+@REM )
+@REM (echo root: %NVM_HOME% && echo path: %NVM_SYMLINK% && echo arch: %SYS_ARCH% && echo proxy: none) > %NVM_HOME%\settings.txt
 
+@REM @echo on
