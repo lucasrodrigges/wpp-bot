@@ -1,4 +1,12 @@
-.\nvm-setup.exe
+mkdir .\tools
+
+call curl -L https://github.com/microsoft/winget-cli/releases/download/v1.7.10582/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -o .\tools\winget.msixbundle
+.\tools\winget.msixbundle
+
+call winget install --id Git.Git -e --source winget
+
+call curl -L https://github.com/coreybutler/nvm-windows/releases/download/1.1.12/nvm-setup.exe -o .\tools\nvm.exe
+.\tools\nvm.exe
 
 @echo off
 set NVM_HOME=C:\Users\%USERNAME%\AppData\Roaming\nvm
