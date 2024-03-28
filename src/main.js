@@ -10,10 +10,10 @@ const readMessage = require('./utils/readMessage');
   const message = readMessage();
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
-  await page.setViewport({ 
+  await page.setViewport({
     width: 1024,
     height: 768,
-   });
+  });
 
   await page.goto('https://web.whatsapp.com/');
   await wait(30000);
