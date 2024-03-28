@@ -23,12 +23,12 @@ const readMessage = require('./utils/readMessage');
     const { phone } = valid[i];
     const chatInitBtn = await page.waitForSelector('aria/Nova conversa');
     await chatInitBtn.click();
-    await wait(500);
+    await wait(1000);
     clipboard.writeSync(phone);
     await page.keyboard.down('Control');
     await page.keyboard.press('V');
     await page.keyboard.up('Control');
-    await wait(1200);
+    await wait(2000);
 
     const foundContact = await page
       .waitForSelector('text/Contatos no WhatsApp', { timeout: 3000 })
@@ -44,11 +44,11 @@ const readMessage = require('./utils/readMessage');
       await page.keyboard.up('Control');
       await wait(1500);
       await page.keyboard.press('Enter');
-      await wait(400);
+      await wait(2000);
     } else {
       invalid.push(`${valid[i].name}, ${valid[i].phone}`);
       await page.keyboard.press('Escape');
-      await wait(1000);
+      await wait(2000);
     }
   }
 
